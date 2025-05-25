@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, ArrowDown } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -81,6 +81,14 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Linkedin size={24} />
+              </motion.a>
+              <motion.a
+                href="mailto:contact@piyush.dev"
+                className="p-3 bg-[#222222] text-white rounded-full hover:bg-[#7B7B7B] transition-colors duration-300"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Mail size={24} />
               </motion.a>
             </motion.div>
           </motion.div>

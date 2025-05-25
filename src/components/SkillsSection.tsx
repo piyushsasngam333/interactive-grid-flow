@@ -10,34 +10,34 @@ const SkillsSection = () => {
     {
       title: 'Frontend Development',
       skills: [
-        { name: 'HTML/CSS', level: 90 },
-        { name: 'JavaScript', level: 85 },
-        { name: 'React.js', level: 88 },
-        { name: 'Next.js', level: 80 },
-        { name: 'Tailwind CSS', level: 92 },
-        { name: 'TypeScript', level: 75 }
+        'HTML/CSS',
+        'JavaScript',
+        'React.js',
+        'Next.js',
+        'Tailwind CSS',
+        'TypeScript'
       ]
     },
     {
       title: 'Backend Development',
       skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Express.js', level: 88 },
-        { name: 'MongoDB', level: 82 },
-        { name: 'PostgreSQL', level: 78 },
-        { name: 'REST APIs', level: 90 },
-        { name: 'GraphQL', level: 70 }
+        'Node.js',
+        'Express.js',
+        'MongoDB',
+        'PostgreSQL',
+        'REST APIs',
+        'GraphQL'
       ]
     },
     {
       title: 'Other Skills',
       skills: [
-        { name: 'Git/GitHub', level: 88 },
-        { name: 'Docker', level: 75 },
-        { name: 'AWS', level: 70 },
-        { name: 'Firebase', level: 80 },
-        { name: 'Python', level: 78 },
-        { name: 'UI/UX Design', level: 85 }
+        'Git/GitHub',
+        'Docker',
+        'AWS',
+        'Firebase',
+        'Python',
+        'UI/UX Design'
       ]
     }
   ];
@@ -54,7 +54,7 @@ const SkillsSection = () => {
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-[#222222] mb-4">Skills</h2>
           <p className="text-lg text-[#7B7B7B] max-w-2xl mx-auto">
-            My technical expertise and proficiency levels
+            My technical expertise and technologies I work with
           </p>
         </motion.div>
 
@@ -71,27 +71,20 @@ const SkillsSection = () => {
                 {category.title}
               </h3>
               
-              <div className="space-y-6">
+              <div className="grid grid-cols-2 gap-3">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-[#222222] font-medium">{skill.name}</span>
-                      <span className="text-[#7B7B7B] text-sm">{skill.level}%</span>
-                    </div>
-                    
-                    <div className="w-full bg-[#F8F8F8] rounded-full h-2">
-                      <motion.div
-                        className="bg-[#222222] h-2 rounded-full"
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-                        transition={{ 
-                          duration: 1.5, 
-                          delay: categoryIndex * 0.2 + skillIndex * 0.1,
-                          ease: "easeOut"
-                        }}
-                      />
-                    </div>
-                  </div>
+                  <motion.div
+                    key={skillIndex}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                    transition={{ 
+                      duration: 0.5, 
+                      delay: categoryIndex * 0.2 + skillIndex * 0.1 
+                    }}
+                    className="bg-[#F8F8F8] px-3 py-2 rounded-lg text-center text-[#222222] font-medium text-sm hover:bg-[#222222] hover:text-white transition-colors duration-300 cursor-default"
+                  >
+                    {skill}
+                  </motion.div>
                 ))}
               </div>
             </motion.div>

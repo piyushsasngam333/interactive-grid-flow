@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { GraduationCap, Briefcase, Calendar } from 'lucide-react';
+import { GraduationCap, Briefcase, Calendar, Download } from 'lucide-react';
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -100,11 +100,22 @@ const AboutSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center mt-16"
         >
-          <p className="text-lg text-[#7B7B7B] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-[#7B7B7B] max-w-3xl mx-auto leading-relaxed mb-8">
             I'm passionate about creating innovative web solutions that bridge design and functionality. 
             With experience in full-stack development and a strong educational background, I bring both 
             technical expertise and creative problem-solving to every project.
           </p>
+          
+          <motion.a
+            href="#"
+            download="Piyush_CV.pdf"
+            className="inline-flex items-center px-6 py-3 bg-[#222222] text-white rounded-lg hover:bg-[#7B7B7B] transition-colors duration-300"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Download size={20} className="mr-2" />
+            Download CV
+          </motion.a>
         </motion.div>
       </div>
     </section>

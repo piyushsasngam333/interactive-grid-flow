@@ -11,28 +11,42 @@ const ProjectsSection = () => {
     {
       title: 'Chatalaxy',
       description: 'A modern social media platform built with MERN stack featuring real-time messaging, user authentication, post sharing, and interactive user profiles.',
-      techStack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Socket.io', 'JWT'],
-      features: [
-        'Real-time messaging system',
-        'User authentication & authorization',
-        'Post creation and sharing',
-        'Like and comment functionality',
-        'Responsive design'
-      ],
+      techStack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Socket.io'],
       liveUrl: '#',
       githubUrl: '#'
     },
     {
       title: 'GeminiForms',
       description: 'An intelligent form builder application powered by Google Gemini AI that automatically generates forms based on user requirements and natural language input.',
-      techStack: ['React.js', 'TypeScript', 'Gemini AI', 'Tailwind CSS', 'Firebase'],
-      features: [
-        'AI-powered form generation',
-        'Natural language processing',
-        'Drag & drop form builder',
-        'Real-time form preview',
-        'Export functionality'
-      ],
+      techStack: ['React.js', 'TypeScript', 'Gemini AI', 'Tailwind CSS'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'TaskFlow Pro',
+      description: 'A comprehensive project management tool with team collaboration features, real-time updates, and advanced analytics dashboard.',
+      techStack: ['React.js', 'Node.js', 'PostgreSQL', 'Redux'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'E-Commerce Hub',
+      description: 'Full-featured e-commerce platform with payment integration, inventory management, and admin dashboard.',
+      techStack: ['Next.js', 'Stripe', 'MongoDB', 'Prisma'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'Weather Dashboard',
+      description: 'Interactive weather application with real-time forecasts, location-based services, and detailed analytics.',
+      techStack: ['React.js', 'Weather API', 'Chart.js', 'CSS3'],
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      title: 'Blog Platform',
+      description: 'Modern blogging platform with markdown support, user authentication, and content management system.',
+      techStack: ['Next.js', 'Firebase', 'Markdown', 'Tailwind CSS'],
       liveUrl: '#',
       githubUrl: '#'
     }
@@ -54,32 +68,31 @@ const ProjectsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
               className="bg-[#F8F8F8] rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
               {/* Project Image Placeholder */}
-              <div className="h-64 bg-gradient-to-br from-[#222222] to-[#7B7B7B] flex items-center justify-center">
-                <div className="text-white text-2xl font-bold">{project.title}</div>
+              <div className="h-48 bg-gradient-to-br from-[#222222] to-[#7B7B7B] flex items-center justify-center">
+                <div className="text-white text-xl font-bold">{project.title}</div>
               </div>
               
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-[#222222] mb-4">{project.title}</h3>
-                <p className="text-[#7B7B7B] mb-6 leading-relaxed">{project.description}</p>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-[#222222] mb-3">{project.title}</h3>
+                <p className="text-[#7B7B7B] mb-4 text-sm leading-relaxed">{project.description}</p>
                 
                 {/* Tech Stack */}
                 <div className="mb-6">
-                  <h4 className="text-[#222222] font-semibold mb-3">Tech Stack:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-white text-[#222222] text-sm rounded-full border border-[#7B7B7B]/20"
+                        className="px-2 py-1 bg-white text-[#222222] text-xs rounded-full border border-[#7B7B7B]/20"
                       >
                         {tech}
                       </span>
@@ -87,37 +100,24 @@ const ProjectsSection = () => {
                   </div>
                 </div>
                 
-                {/* Features */}
-                <div className="mb-6">
-                  <h4 className="text-[#222222] font-semibold mb-3">Key Features:</h4>
-                  <ul className="space-y-2">
-                    {project.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="text-[#7B7B7B] text-sm flex items-center">
-                        <div className="w-1.5 h-1.5 bg-[#222222] rounded-full mr-3"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
                 {/* Action Buttons */}
-                <div className="flex space-x-4">
+                <div className="flex space-x-3">
                   <motion.a
                     href={project.liveUrl}
-                    className="flex items-center px-4 py-2 bg-[#222222] text-white rounded-lg hover:bg-[#7B7B7B] transition-colors duration-300"
+                    className="flex items-center px-3 py-2 bg-[#222222] text-white rounded-lg hover:bg-[#7B7B7B] transition-colors duration-300 text-sm"
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <ExternalLink size={16} className="mr-2" />
-                    Live Demo
+                    <ExternalLink size={14} className="mr-1" />
+                    Live
                   </motion.a>
                   <motion.a
                     href={project.githubUrl}
-                    className="flex items-center px-4 py-2 border border-[#222222] text-[#222222] rounded-lg hover:bg-[#222222] hover:text-white transition-colors duration-300"
+                    className="flex items-center px-3 py-2 border border-[#222222] text-[#222222] rounded-lg hover:bg-[#222222] hover:text-white transition-colors duration-300 text-sm"
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Github size={16} className="mr-2" />
+                    <Github size={14} className="mr-1" />
                     Code
                   </motion.a>
                 </div>
